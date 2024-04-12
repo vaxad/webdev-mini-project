@@ -1,0 +1,68 @@
+.main-page {
+  flex: 1; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.userInfo {
+  display: flex;
+  padding: 3%;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.image {
+  width: 250px; 
+  height: 250px; 
+  border-radius: 50%; 
+  overflow: hidden; 
+}
+
+img, .img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  background-color: rgb(31, 29, 29);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid rgb(85, 23, 85);
+  padding: 5%;
+  border-radius: 10%;
+  background-color: rgb(31, 29, 29);
+  gap: 20px;
+}
+
+.nameTimezone {
+  display: flex;
+  gap: 5%;
+}
+
+.username, .timezone, .furtherInfo {
+  padding: 2%;
+  border: 3px solid rgb(82, 25, 82);
+  background-color: black;
+  border-radius: 10%;
+}
+
+.games
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 150px;
+  border: 3px solid rgb(85, 23, 85);
+  border-radius: 10%;
+  background-color: rgb(31, 29, 29);
+}
