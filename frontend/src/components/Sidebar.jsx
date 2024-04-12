@@ -8,21 +8,21 @@ export default function Sidebar() {
   return (
     <nav className="sidebar">
       <ul>
-        <li className="sidebar-item">
-          <Link to="/explore" className="sidebar-link">
+        <Link to="/" className="sidebar-link">
+          <li className="sidebar-item">
             Explore <BiSolidBinoculars className="fill" />
-          </Link>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/profile" className="sidebar-link">
+          </li>
+        </Link>
+        <Link to="/profile" className="sidebar-link">
+          <li className="sidebar-item">
             Profile <CgProfile className="fill" />
-          </Link>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/friends" className="sidebar-link">
+          </li>
+        </Link>
+        <Link to="/friends" className="sidebar-link">
+          <li className="sidebar-item">
             Friends <FaUserFriends className="fill" />
-          </Link>
-        </li>
+          </li>
+        </Link>
       </ul>
     </nav>
   );

@@ -1,0 +1,74 @@
+.gameCard {
+  position: relative;
+  padding: 20px 20px;
+  margin-bottom: 5%;
+  width: 600px;
+  height: 400px;
+  border: 3px solid rgb(85, 23, 85);
+  border-radius: 20px;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 25px rgba(0, 0, 0, 0.35);
+}
+
+.gameCard:hover {
+  transform: scale(1.1);
+}
+
+.gameInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.releaseDate {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.gameCard img {
+  border-radius: 20px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  height: 80%;
+  width: 100%;
+}
+
+.gameCard .gameRating {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gameCard .gameInfo .right {
+  display: flex;
+  flex-direction: column;
+}
+
+.gameRating .fa-star {
+  color: gold;
+}
+
+.review {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 5px;
+}
+
+.genreChipContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.genreChip,
+.tagChip {
+  background-color: green;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
