@@ -13,6 +13,7 @@ const port = 5000;
 app.use(express.json());
 app.use('/auth', require('./routes/auth'));
 app.use('/secrets', require('./routes/secrets'));
+app.use('/games', require('./routes/game'));
 
 app.get('/', async (req, res) => {
   res.send("server is working");
