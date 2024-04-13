@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const userSchema = new Schema({
-    name:{
+    username:{
         type:String,
-        required:true
+        required:true,
     },
     email:{
         type:String,
@@ -15,11 +15,32 @@ const userSchema = new Schema({
         type:String,
         required:true
     },
-    date:{
+    startTime:{
         type:Date,
         default:Date.now,
         required:true
     },
+    endTime:{
+        type:Date,
+        default:Date.now,
+        required:true
+    },
+    genre:{
+        type:[String],
+        required:true
+    },
+    rank:{
+        type:String,
+        required:true
+    },
+    interestedGames:{
+        type:[String],
+        required:true
+    },
+    frieds:{
+        type:[String],
+        required:true
+    },
   });
-  const User=mongoose.model('testuser',userSchema);
+  const User=mongoose.model('gambino-user',userSchema);
   module.exports=User;
