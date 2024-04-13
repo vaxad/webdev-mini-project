@@ -2,18 +2,9 @@
   position: relative;
   padding: 20px 20px;
   margin-bottom: 5%;
-  width: 600px;
-  height: 400px;
-  border: 3px solid rgb(85, 23, 85);
   border-radius: 20px;
-  transition: transform 0.3s ease-in-out;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 25px rgba(0, 0, 0, 0.35);
 }
 
-.gameCard:hover {
-  transform: scale(1.1);
-}
 
 .gameInfo {
   display: flex;
@@ -31,7 +22,7 @@
   border-radius: 20px;
   margin-bottom: 15px;
   object-fit: cover;
-  height: 80%;
+  height: 100%;
   width: 100%;
 }
 
@@ -65,7 +56,6 @@
 
 .genreChip,
 .tagChip {
-  background-color: green;
   color: white;
   padding: 5px 10px;
   border-radius: 5px;

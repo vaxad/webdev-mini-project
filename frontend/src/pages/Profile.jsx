@@ -4,30 +4,42 @@ import { CiFaceSmile } from "react-icons/ci";
 import GameCard from "../components/GameCard";
 import { useEffect, useState } from "react";
 import "../styles/gameCard.css";
+import { apiHelper } from "../lib/apiHelper";
+import Loader from "../components/Loader";
 
 export default function Profile() {
-  const userInfo = {
-    username: "AssaultKing777",
-    timezone: "+5:30 UTC",
-    interestedGenre: "Action",
-    rank: "Legendary",
-  };
-  const { username, timezone, interestedGenre, rank } = userInfo;
+  const [userInfo, setUserInfo] = useState(null); 
   const fetchData = async () => {
-    const response = await fetch(
-      "https://api.rawg.io/api/games?key=00b1ff86099d4d958b6f4a2d9b43c69c"
-    );
-    const data = await response.json();
-    return data.results;
+    const token = localStorage.getItem("token");
+    const user = await apiHelper.getUser(token);
+    if (user.error) {
+      console.log(user.error);
+      return;
+    }
+    setUserInfo(user);
+    setGames(prev=>[])
+    user.interestedGames.forEach(async (gameId) => {
+      const res = await apiHelper.fetchGameData(gameId);
+      if (res.error) {
+        console.log(res.error);
+        return;
+      }
+      setGames((prev) => [...prev, res]);
+    })
+    if (res.error) {
+      console.log(res.error);
+      return;
+    }
+    setGames(res)
   };
 
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    fetchData().then((gamesData) => setGames(gamesData));
+    fetchData()
   }, []);
 
-  return (
+  return userInfo?(
     <main className="main-page">
       <div className="userInfo">
         <div className="image">
@@ -36,23 +48,29 @@ export default function Profile() {
         </div>
         <div className="info">
           <div className="nameTimezone">
-            <div className="username">Username: {username}</div>
-            <div className="timezone">Timezone: {timezone}</div>
+            <div className="username">Username: {userInfo.username}</div>
+            <div className="timezone">Timezone: {(new Date(userInfo.startTime)).getHours().toString()+" to "+(new Date(userInfo.endTime)).getHours().toString()}</div>
           </div>
           <div className="moreInfo">
             <div className="furtherInfo">
-              Interested Genre: {interestedGenre}
+              Interested Genre: {" "+userInfo.genre.join(", ")}
               <br />
-              Rank: {rank}
+              Rank: {userInfo.rank}
             </div>
           </div>
         </div>
       </div>
-      <div className="games">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {games.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </div>
     </main>
-  );
+  )
+  :
+  (
+    <main className=" min-h-screen flex flex-col justify-center items-center w-full">
+      <Loader/>
+    </main>
+  )
 }

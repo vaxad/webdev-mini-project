@@ -3,7 +3,7 @@ import '../styles/header.css'
 
 export default function Header() {
   return (
-    <div className=" fef">
+    <div className=" fef ">
       <h1 className=" font-semibold text-base" id="header">
         Copyrights © 2024
       </h1>

@@ -4,19 +4,30 @@ import Sidebar from "./components/Sidebar";
 import Explore from "./pages/Explore";
 import Friends from "./pages/Friends";
 import Header from "./components/Header";
+import Signup from "./pages/Signup";
+import Game from "./pages/Game";
 
 function App() {
   return (
     <>
-      <Header />
       <BrowserRouter>
         <div className="content">
+          <div className=" fixed top-0">
           <Sidebar />
+          </div>
+          <div className=" opacity-0 pointer-events-none">
+          <Sidebar />
+          </div>
+          <div className=" flex flex-col w-full">
           <Routes>
             <Route path="/" element={<Explore />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/friends" element={<Friends />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/games/:id" element={<Game />} />
           </Routes>
+      <Header />
+      </div>
         </div>
       </BrowserRouter>
     </>

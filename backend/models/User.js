@@ -37,7 +37,7 @@ const userSchema = new Schema({
         type:[String],
         required:true
     },
-    frieds:{
+    friends:{
         type:[String],
         required:true
     },

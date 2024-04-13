@@ -3,6 +3,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import '../styles/gameCard.css'; 
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Rating({ rating }) {
   return (
@@ -15,7 +17,7 @@ function Rating({ rating }) {
 
 function GameCard({ game }) {
   const releaseYear = game.released ? game.released.substring(0, 4) : '';
-
+  const [hover,setHover] = useState(false)
   const getRandomTags = (tags) => {
     if (!tags || tags.length === 0) {
       return [];
@@ -29,20 +31,24 @@ function GameCard({ game }) {
 
   const randomTags = getRandomTags(game.tags || []); 
   return (
-    <div className="col-xl-3 col-lg-4 col-md-6">
-      <div className="gameCard">
-        <img src={game.background_image} alt={game.name} className="img-fluid" />
-        <div className="genreChipContainer"> 
+    <div className=" p-4 h-full w-full relative flex flex-grow">
+      <Link to={`/games/${game.id}`} onMouseEnter={()=>setHover(true)} onMouseLeave={()=>{setHover(false)}} className="gameCard h-full w-full overflow-clip bg-zinc-950 border border-yellow-500">
+      
+        <div className=' w-full flex h-3/5 relative'>
+        <div  className={`absolute top-0 right-0 h-full w-full opacity-0 ${hover?"opacity-90 cursor-pointer":""} transition-all delay-75 duration-300 flex flex-col justify-center items-center bg-[rgba(0,0,0,0.9)]`}>
+        <h1 className=' text-slate-50 font-semibold text-xl text-center '>Genre:<span className=' font-medium'>{" "}{game.genres.map((genre)=>genre.name).join(", ")}</span></h1>
+      </div>
+        <img src={game.background_image} alt={game.name} className=" w-full h-full" />
+        </div>
+        {/* <div className="genreChipContainer"> 
           {game.genres && game.genres.length > 0 && game.genres.map((genre, index) => (
             <div className="genreChip" key={index}>{genre.name}</div>
           ))}
-          {randomTags.slice(0, 4).map((tag, index) => (
-            <div className="tagChip" key={index}>{tag.name}</div>
-          ))}
-        </div>
+        </div> */}
+        <div className=' flex flex-col pb-4'>
         <div className="gameInfo">
-          <div className="left">
-            <div className="gameTitle mt-4 mb-2">{game.name}</div>
+          <div className="left gap-3">
+            <div className="gameTitle mt-4 mb-2 text-2xl font-semibold">{game.name}</div>
             <div className="releaseDate"> {releaseYear}</div>
           </div>
           <div className="right">
@@ -50,7 +56,13 @@ function GameCard({ game }) {
             <div className="review">{game.ratings_count} reviews</div>
           </div>
         </div>
-      </div>
+        <div className=' flex flex-row flex-shrink gap-2 py-2'>
+          {randomTags.slice(0, 2).map((tag, index) => (
+            <div className="tagChip bg-yellow-500 text-zinc-950 font-bold flex-shrink" key={index}>{tag.name}</div>
+          ))}
+        </div>
+        </div>
+      </Link>
     </div>
   );
 }

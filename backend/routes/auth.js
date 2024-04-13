@@ -23,9 +23,9 @@ router.post('/signup', [
         const user = await User.findOne({ email: req.body.email });
         const user2 = await User.findOne({ username: req.body.username });
         if (user) {
-            return res.status(400).json({ error: 'A user with this email already exists!' });
+            return res.status(200).json({ error: 'A user with this email already exists!' });
         }else if (user2) {
-            return res.status(400).json({ error: 'A user with this username already exists!' });
+            return res.status(200).json({ error: 'A user with this username already exists!' });
         }else{
         const salt = await bcrypt.genSalt(10);
         const secPass = await bcrypt.hash(req.body.password, salt);
@@ -65,11 +65,11 @@ router.post('/login', [
     try {
         let user = await User.findOne({ username });
         if (!user) {
-            return res.status(400).json({ error: "Please login with correct credentials" });
+            return res.status(200).json({ error: "User does not exists" });
         }
         const passwordCompare = await bcrypt.compare(password, user.password);
         if (!passwordCompare) {
-            return res.status(400).json({ error: "Please login with correct credentials" });
+            return res.status(200).json({ error: "Please login with correct credentials" });
         }
         const data = {
             user: {

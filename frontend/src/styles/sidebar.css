@@ -1,17 +1,10 @@
 .sidebar {
-  width: 350px;
-  background-color: #1e1f26;
-  border: 1px solid #daa;
   border-radius: 1%;
   padding-top: 5%;
   padding-left: 3%;
   padding-right: 3%;
   font-size: 30px;
   height: 100vh;
-  @media (max-width: 768px) {
-    width: 100%; 
-    padding: 10px;
-  }
 }
 
 ul {
@@ -48,9 +41,4 @@ ul {
 .sidebar-item:hover {
   background-color: #112;
   color: #fef;
-}
-
-.fill {
-  width: 50px;
-  height: 50px;
 }
