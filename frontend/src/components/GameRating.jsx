@@ -1,9 +1,10 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+// import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
-import './gameCard.css'; // Import your CSS file for styling
+import '../styles/gameCard.css'; 
 
-function GameRating({ rating }) {
+export default function GameRating({ rating }) {
   const fullStars = Math.floor(rating);
   const partialStar = rating - fullStars;
 

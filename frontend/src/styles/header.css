@@ -1,0 +1,11 @@
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #33373b;
+}
+
+.fef {
+  width: 100%;
+}
+
