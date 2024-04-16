@@ -10,7 +10,12 @@
 ul {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+li {
+  margin: 5% 0%;
 }
 
 .sidebar-item {
