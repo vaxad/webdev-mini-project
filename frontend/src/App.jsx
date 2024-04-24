@@ -25,6 +25,7 @@ function App() {
             <Route path="/friends" element={<Friends />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/games/:id" element={<Game />} />
+            {/* <Route path="/games/:gameId" component={GameInfo} /> */}
           </Routes>
       <Header />
       </div>
