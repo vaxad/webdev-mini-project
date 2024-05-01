@@ -67,7 +67,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any inquiries or feedback, feel free to contact us at [vaxad.dev@gamil.com](mailto:vaxad.dev@gmail.com).
+For any inquiries or feedback, feel free to contact us at [vaxad.dev@gmail.com](mailto:vaxad.dev@gmail.com).
 
 ---
 
