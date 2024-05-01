@@ -76,3 +76,11 @@ Feel free to customize this template according to your project's specific detail
 ## Website Screenshots 
 
 ![Screenshot 2024-05-01 202354](https://github.com/vaxad/webdev-mini-project/assets/111230032/1560c023-0b80-4fd1-b066-1b94ce8e2097)
+
+![Screenshot 2024-05-01 203746](https://github.com/vaxad/webdev-mini-project/assets/111230032/78153b09-70c3-49c9-826e-7daee43684b7)
+
+![Screenshot 2024-05-01 204017](https://github.com/vaxad/webdev-mini-project/assets/111230032/68bd4a6c-4486-49e0-84ee-b2508028ad77)
+
+![Screenshot 2024-05-01 203915](https://github.com/vaxad/webdev-mini-project/assets/111230032/d1e330dd-c380-4e12-8b31-c2486852287f)
+
+![Screenshot 2024-05-01 203832](https://github.com/vaxad/webdev-mini-project/assets/111230032/f19a6393-7a60-433a-9252-b9f79cf025e4)
