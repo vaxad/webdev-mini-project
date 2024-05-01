@@ -75,5 +75,4 @@ Feel free to customize this template according to your project's specific detail
 
 ## Website Screenshots 
 
-![alt text]('https://github.com/vaxad/webdev-mini-project/tree/main/website_photos/Screenshot%202024-05-01%20202354.png')
-
+![Screenshot 2024-05-01 202354](https://github.com/vaxad/webdev-mini-project/assets/111230032/1560c023-0b80-4fd1-b066-1b94ce8e2097)
