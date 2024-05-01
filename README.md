@@ -72,3 +72,7 @@ For any inquiries or feedback, feel free to contact us at [vaxad.dev@gmail.com](
 ---
 
 Feel free to customize this template according to your project's specific details and requirements!
+
+## Website Screenshots 
+
+![alt text]('https://github.com/vaxad/webdev-mini-project/blob/tree/website_photos/website_photos/Screenshot 2024-05-01 202354.png')
