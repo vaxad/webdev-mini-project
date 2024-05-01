@@ -6,6 +6,7 @@ import Friends from "./pages/Friends";
 import Header from "./components/Header";
 import Signup from "./pages/Signup";
 import Game from "./pages/Game";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Explore />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/users/:id" element={<UserProfile />} />
             <Route path="/friends" element={<Friends />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/games/:id" element={<Game />} />

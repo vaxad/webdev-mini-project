@@ -24,10 +24,12 @@ export default function Friends() {
       console.log(res.error);
       return;
     }
+    console.log(res)
     setSuggestions(res);
   }
 
   useEffect(() => {
+    console.log(searchTerm)
     if (searchTerm.trim() === "") {
       // eslint-disable-next-line no-unused-vars
       setSuggestions((prev) => []);
@@ -75,7 +77,7 @@ export default function Friends() {
           <div className=" z-30 absolute top-0 w-full h-fit rounded-lg overflow-clip">
             {suggestions.map((elem, ind) => {
               return (
-                <Link to={`/users/${elem.id}`} key={`suggestion-${ind}`}>
+                <Link to={`/users/${elem._id}`} key={`suggestion-${ind}`}>
                   <div
                     className={`py-2 px-5 bg-slate-50 hover:bg-zinc-900 text-zinc-950 hover:text-slate-50 transition-all ${
                       ind === suggestions.length - 1
@@ -83,7 +85,7 @@ export default function Friends() {
                         : " border-b border-zinc-400"
                     }`}
                   >
-                    <h2 className=" text-xl font-semibold ">{elem.name}</h2>
+                    <h2 className=" text-xl font-semibold ">{elem.username}</h2>
                   </div>
                 </Link>
               );

@@ -14,8 +14,7 @@
 
 .image {
   /* border-radius: 50%;  */
-  border: 3px solid rgb(85, 23, 85);
-  border-radius: 10%;
+  border: 3px solid gold;
   overflow: hidden;
 }
 
@@ -30,9 +29,8 @@ img,
 .info {
   display: flex;
   flex-direction: column;
-  border: 3px solid rgb(85, 23, 85);
+  border: 3px solid gold;
   padding: 5%;
-  border-radius: 10%;
   background-color: rgb(31, 29, 29);
   gap: 20px;
 }
@@ -46,9 +44,8 @@ img,
 .timezone,
 .furtherInfo {
   padding: 2%;
-  border: 3px solid rgb(82, 25, 82);
+  border: 3px solid gold;
   background-color: black;
-  border-radius: 10%;
 }
 
 .games {
@@ -66,7 +63,6 @@ img,
   align-items: center;
   /* margin: 1%; */
   /* padding: 150px; */
-  border: 3px solid rgb(85, 23, 85);
-  border-radius: 10%;
+  border: 3px solid gold;
   background-color: rgb(31, 29, 29);
 }

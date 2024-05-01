@@ -32,7 +32,7 @@ function GameCard({ game }) {
   const randomTags = getRandomTags(game.tags || []); 
   return (
     <div className=" p-4 h-full w-full relative flex flex-grow">
-      <Link to={`/games/${game.id}`} onMouseEnter={()=>setHover(true)} onMouseLeave={()=>{setHover(false)}} className="gameCard h-full w-full overflow-clip bg-zinc-950 border border-yellow-500">
+      <Link to={`/games/${game.id}`} onMouseEnter={()=>setHover(true)} onMouseLeave={()=>{setHover(false)}} className="flex flex-col rounded-2xl h-full w-full overflow-clip bg-zinc-950 border border-yellow-500">
       
         <div className=' w-full flex h-3/5 relative'>
         <div  className={`absolute top-0 right-0 h-full w-full opacity-0 ${hover?"opacity-90 cursor-pointer":""} transition-all delay-75 duration-300 flex flex-col justify-center items-center bg-[rgba(0,0,0,0.9)]`}>
@@ -45,15 +45,15 @@ function GameCard({ game }) {
             <div className="genreChip" key={index}>{genre.name}</div>
           ))}
         </div> */}
-        <div className=' flex flex-col pb-4'>
-        <div className="gameInfo">
-          <div className="left gap-3">
-            <div className="gameTitle mt-4 mb-2 text-2xl font-semibold">{game.name}</div>
-            <div className="releaseDate"> {releaseYear}</div>
+        <div className=' px-4 flex flex-col pb-4'>
+        <div className=" flex flex-row justify-between  items-end ">
+          <div className=" gap-3">
+            <div className=" mt-4 mb-2 text-2xl font-semibold w-full">{game.name}</div>
+            <div className=""> {releaseYear}</div>
           </div>
-          <div className="right">
+          <div className=" flex flex-col py-2 gap-1 items-end justify-end">
             <div><Rating rating={game.rating} /></div>
-            <div className="review">{game.ratings_count} reviews</div>
+            <div className=" text-nowrap">{game.ratings_count} reviews</div>
           </div>
         </div>
         <div className=' flex flex-row flex-shrink gap-2 py-2'>

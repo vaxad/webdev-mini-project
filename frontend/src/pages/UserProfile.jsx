@@ -6,16 +6,17 @@ import { useEffect, useState } from "react";
 import "../styles/gameCard.css";
 import { apiHelper } from "../lib/apiHelper";
 import Loader from "../components/Loader";
+import { useParams } from "react-router-dom";
 
-export default function Profile() {
+export default function UserProfile() {
+  const { id } = useParams();
   const [userInfo, setUserInfo] = useState(null); 
-
   function isElementInArray(element, array){
     return array.filter(e=>e.id===element.id).length>0
   }
   const fetchData = async () => {
     const token = localStorage.getItem("token");
-    const user = await apiHelper.getUser(token);
+    const user = await apiHelper.getUserById(token, id);
     if (user.error) {
       console.log(user.error);
       return;
@@ -25,6 +26,7 @@ export default function Profile() {
     user.interestedGames.forEach(async (gameId) => {
       const res = await apiHelper.fetchGameData(gameId);
       console.log(res)
+      if(!res)return
       if (res.error) {
         console.log(res.error);
         return;

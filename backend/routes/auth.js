@@ -94,4 +94,23 @@ router.get('/getuser', fetchuser, async (req, res) => {
     }
 })
 
+router.get('/user/:id', fetchuser, async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.findById(userId).select("-password");
+        return res.status(200).json({ user });
+    } catch (error) {
+        return res.status(500).json({ error });
+    }
+})
+
+router.get('/search', async (req, res) => {
+    try {
+        const searchTerm = req.query.term; 
+        const games = await User.find({ username: { $regex: new RegExp(searchTerm, 'i') } }).limit(10);
+        return res.json(games).status(200);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+});
 module.exports = router;

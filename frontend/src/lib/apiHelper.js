@@ -36,8 +36,28 @@ export const apiHelper = {
         }
         return body.user;
     },
+    getUserById: async (token, id) => {
+        const response = await axios.get(`${url}/auth/user/${id}`, {
+            headers: {
+                "auth-token": token
+            }
+        });
+        const body = response.data
+        if (response.status !== 200 || response.data.error) {
+            return { error: body.error }
+        }
+        return body.user;
+    },
     dynamicSearch: async (searchTerm) => {
         const response = await axios.get(`${url}/games/search?term=${searchTerm}`);
+        const body = response.data
+        if (response.status !== 200 || response.data.error) {
+            return { error: body.error }
+        }
+        return body;
+    },
+    searchUsers: async (searchTerm) => {
+        const response = await axios.get(`${url}/auth/search?term=${searchTerm}`);
         const body = response.data
         if (response.status !== 200 || response.data.error) {
             return { error: body.error }
@@ -61,8 +81,14 @@ export const apiHelper = {
         try {
             const apiKey = import.meta.env.VITE_API_KEY
             const response = await axios.get(
-                `https://api.rawg.io/api/games/${id}?key=${apiKey}`
+                `https://api.rawg.io/api/games/${id}?key=${apiKey}`,
+                {
+                    validateStatus: function (status) {
+                        return status < 400; 
+                    }
+                }
             );
+            if(!response)return {error: "no response"}
             return response.data;
         } catch (error) {
             console.log("error in rawg api getting game details: "+error)
